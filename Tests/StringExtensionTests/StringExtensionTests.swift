@@ -1,5 +1,4 @@
     import XCTest
-    @testable import StringExtension
     
     final class StringExtensionTests: XCTestCase {
         
