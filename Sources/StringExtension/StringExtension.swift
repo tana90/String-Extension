@@ -20,20 +20,27 @@
 //
 
 import Foundation
-#if canImport(UIKit)
-import UIKit
-#endif
+import CryptoKit
 
 // MARK: - String
 
 public extension String {
     
-    var md5: String { HMAC.hash(inp: self, algo: HMACAlgo.MD5) }
     var sha1: String { HMAC.hash(inp: self, algo: HMACAlgo.SHA1) }
     var sha224: String { HMAC.hash(inp: self, algo: HMACAlgo.SHA224) }
     var sha256: String { HMAC.hash(inp: self, algo: HMACAlgo.SHA256) }
     var sha384: String { HMAC.hash(inp: self, algo: HMACAlgo.SHA384) }
     var sha512: String { HMAC.hash(inp: self, algo: HMACAlgo.SHA512) }
+    
+    @available(macOS 10.15, iOS 13,  *)
+    var md5: String {
+        
+        let digest = Insecure.MD5.hash(data: self.data(using: .utf8) ?? Data())
+        
+        return digest.map {
+            String(format: "%02hhx", $0)
+        }.joined()
+    }
     
     var charactersArray: [Character] {
         return Array(self)
