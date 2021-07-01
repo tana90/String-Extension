@@ -1,3 +1,3 @@
-# String+Extension
+# StringExtension
 
 A description of this package.

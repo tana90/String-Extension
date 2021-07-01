@@ -1,7 +1,7 @@
     import XCTest
     @testable import String_Extension
-
-    final class String_ExtensionTests: XCTestCase {
+    
+    final class StringExtensionTests: XCTestCase {
         
         func testSha1() throws {
             let hmacText = "This is a test".sha1
