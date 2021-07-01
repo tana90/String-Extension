@@ -31,7 +31,7 @@ public struct HMAC {
         return ""
     }
 
-    private static func digest(input : NSData, algo: HMACAlgo) -> NSData {
+    static func digest(input : NSData, algo: HMACAlgo) -> NSData {
         let digestLength = algo.digestLength()
         var hash = [UInt8](repeating: 0, count: digestLength)
         switch algo {
@@ -69,7 +69,7 @@ public struct HMAC {
     }
 }
 
-enum HMACAlgo {
+public enum HMACAlgo {
     case MD5, SHA1, SHA224, SHA256, SHA384, SHA512
 
     func digestLength() -> Int {

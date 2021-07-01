@@ -26,7 +26,7 @@ import UIKit
 
 // MARK: - String
 
-extension String {
+public extension String {
     
     var md5: String { HMAC.hash(inp: self, algo: HMACAlgo.MD5) }
     var sha1: String { HMAC.hash(inp: self, algo: HMACAlgo.SHA1) }
